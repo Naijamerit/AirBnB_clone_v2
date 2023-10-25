@@ -82,4 +82,9 @@ class FileStorage:
         if obj:
             # format key from obj
             key = "{}.{}".format(type(obj).__name__, obj.id)
-            del self.__objects[key]
+
+			del self.__objects[key]
+
+	def close(self):
+		"""close the workign SQLALchemy session"""
+			self._session.close()
